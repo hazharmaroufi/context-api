@@ -11,7 +11,7 @@ function Form() {
   const addHandler = () => {
     setUsers((users) => [
       ...users,
-      { id: Math.floor(Math.random() * 100), name: name, phone: phone },
+      { id: Math.floor(Math.random() * 10000), name: name, phone: phone },
     ]);
     resetFields();
   };
