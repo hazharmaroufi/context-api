@@ -3,13 +3,38 @@ import { createContext, useState } from "react";
 export const UserContext = createContext();
 
 function UserProvider({ children }) {
-  const [users, setUsers] = useState([
-    { id: 1, name: "Hazhar" },
-    { id: 2, name: "Pavan" },
-    { id: 3, name: "Darin" },
-  ]);
+  const [selectedUserId, setSelectedUserId] = useState(null);
+  const [users, setUsers] = useState([]);
+  const [editedName, setEditedName] = useState("");
+  const [editedPhone, setEditedPhone] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const resetFields = () => {
+    setName("");
+    setPhone("");
+    setEditedName("");
+    setEditedPhone("");
+    setSelectedUserId(null);
+  };
+
   return (
-    <UserContext.Provider value={{ users, setUsers }}>
+    <UserContext.Provider
+      value={{
+        users,
+        setUsers,
+        editedName,
+        setEditedName,
+        editedPhone,
+        setEditedPhone,
+        name,
+        setName,
+        phone,
+        setPhone,
+        resetFields,
+        selectedUserId,
+        setSelectedUserId,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

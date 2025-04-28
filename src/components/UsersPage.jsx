@@ -1,3 +1,4 @@
+import Edit from "./Edit";
 import Form from "./Form";
 import UserList from "./UserList";
 
@@ -6,6 +7,7 @@ function UsersPage() {
     <div>
       <h1>Context api</h1>
       <Form />
+      <Edit />
       <UserList />
     </div>
   );
