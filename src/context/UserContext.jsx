@@ -4,7 +4,8 @@ export const UserContext = createContext();
 
 function UserProvider({ children }) {
   const [selectedUserId, setSelectedUserId] = useState(null);
-  const [users, setUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState([]); // Store all users
+  const [users, setUsers] = useState([]); // Store filtered users
   const [editedName, setEditedName] = useState("");
   const [editedPhone, setEditedPhone] = useState("");
   const [name, setName] = useState("");
@@ -22,6 +23,8 @@ function UserProvider({ children }) {
       value={{
         users,
         setUsers,
+        allUsers,
+        setAllUsers,
         editedName,
         setEditedName,
         editedPhone,

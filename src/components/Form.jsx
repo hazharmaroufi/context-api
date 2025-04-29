@@ -1,18 +1,25 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { UserContext } from "../context/UserContext";
 
 function Form() {
-  // const [name, setName] = useState("");
-  // const [phone, setPhone] = useState("");
-  const { users, setUsers, name, setName, phone, setPhone, resetFields } =
+  const { setUsers, setAllUsers, name, setName, phone, setPhone, resetFields } =
     useContext(UserContext);
 
   const addHandler = () => {
-    setUsers((users) => [
-      ...users,
-      { id: Math.floor(Math.random() * 10000), name: name, phone: phone },
-    ]);
+    if (name.length <= 2) {
+      alert("Name must be longer than 2 characters");
+      return;
+    }
+    if (phone.length < 11 || phone.length >= 12) {
+      // document.querySelector(".error").textContent =
+      //   "Phone must be 11 characters";
+      alert("Phone must be 11 characters");
+      return;
+    }
+    const newUser = { id: Math.floor(Math.random() * 10000), name, phone };
+    setAllUsers((prev) => [...prev, newUser]);
+    setUsers((prev) => [...prev, newUser]);
     resetFields();
   };
 
@@ -25,7 +32,7 @@ function Form() {
         onChange={(e) => setName(e.target.value)}
       />
       <input
-        type="text"
+        type="number"
         placeholder="Phone"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}

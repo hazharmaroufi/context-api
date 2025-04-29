@@ -1,15 +1,16 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 function Search() {
-  const { users, setUsers } = useContext(UserContext);
+  const { allUsers, setUsers } = useContext(UserContext);
   const [search, setSearch] = useState("");
   const searchHandler = () => {
     if (search.length === 0) {
-      setUsers(users);
+      setUsers(allUsers);
       return;
     }
-    const allUsers = [...users];
-    const searchedUsers = allUsers.filter((user) => user.name.includes(search));
+    const searchedUsers = allUsers.filter((user) =>
+      user.name.toLowerCase().includes(search.toLowerCase())
+    );
     setUsers(searchedUsers);
   };
   return (

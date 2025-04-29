@@ -1,4 +1,4 @@
-import Edit from "./Edit";
+// import Edit from "./Edit";
 import Form from "./Form";
 import Search from "./Search";
 import UserList from "./UserList";
@@ -6,10 +6,10 @@ import UserList from "./UserList";
 function UsersPage() {
   return (
     <div>
-      <h1>Context api</h1>
+      <h1>Contact List</h1>
       <Search />
       <Form />
-      <Edit />
+      {/* <Edit /> */}
       <UserList />
     </div>
   );
