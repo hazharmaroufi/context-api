@@ -77,22 +77,25 @@ img.enlarged {
 
 .PopUp {
   position: fixed;
-
   left: 20%;
   top: 20%;
-
   width: 60%;
-
   border: 2px solid blue;
   border-radius: 1em;
   box-shadow: -2px 5px 5px blue;
-
-  background-color: white;
-
+  background-color: gray;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
   color: #011627;
+}
+
+.PopUp button {
+  align-self: flex-start;
+  margin-left: 1em;
+}
+
+h1 {
+  margin-left: 20px;
 }

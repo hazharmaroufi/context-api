@@ -6,7 +6,7 @@ function PopUp({ showPopUp, closePopUp, children }) {
   }
   return (
     <div className="PopUp">
-      <button onClick={closePopUp}>close</button>
+      <button onClick={closePopUp}>X</button>
       {children}
     </div>
   );
